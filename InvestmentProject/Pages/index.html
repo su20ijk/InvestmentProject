@@ -5,6 +5,27 @@
     <title></title>
 </head>
 <body>
-    sdoafjsadkfksapodfksaodkfdp
+    <div id="app">
+        <div>How much money will you need for retirement?</div><br />
+        <div>your(parents) current income</div>
+        <input type="number" v-model="income" /><br />
+        <button v-on:click="calc">Calculate</button><br />
+        You will need about: {{result}} dollars
+    </div>
 </body>
 </html>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            income: "",
+            result: ""
+        },
+        methods: {
+            calc: function () {
+                this.result = this.income *8;
+            }
+        }
+    });
+</script>
