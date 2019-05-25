@@ -143,6 +143,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Pages\sources.html" />
     <Content Include="Pages\mutualFunds.html" />
     <Content Include="Pages\municipalBonds.html" />
     <Content Include="Pages\fedGovBonds.html" />
