@@ -7,10 +7,35 @@
 <body>
     <div id="app">
         <div>How much money will you need for retirement?</div><br />
-        <div>your(parents) current income</div>
+        <div>please enter your target income: </div>
         <input type="number" v-model="income" /><br />
-        <button v-on:click="calc">Calculate</button><br />
-        You will need about: {{result}} dollars
+        <button v-on:click="calcRetire">Calculate</button><br />
+        You will need about ${{resultRetire}} for your retirement<br />
+        <br />
+        <br />
+        <br />
+        <div>How many years will it take to double up your principle?</div>
+        <div>Please enter your annual percentage growth rate: </div>
+        <input type="number" v-model="interest" />
+        <button v-on:click="calcDouble">Calculate</button><br />
+        You will need about {{resultDouble}} years for the principle to double its value
+        <br />
+        <br />
+        <br />
+        <div>What percentage of your investments should be buying stocks?</div>
+        <div>Please enter your age:</div>
+        <input type="number" v-model="age" />
+        <button v-on:click="calcPercent">Calculate</button><br />
+        {{resultPercent}} % of your investment should be buying stocks
+        <br />
+        <br />
+        <br />
+        <div>What will the future value be for your investment?</div>
+        <div>Present Value: <input type="number" v-model="pv"/></div>
+        <div>Interest Rate: <input type="number" v-model="ir"/></div>
+        <div># of years in investment: <input type="number" v-model="yi"/></div>
+        <button v-on:click="calcInvest">Calculate</button><br />
+        The future value of this investment will be ${{resultInvest}} 
     </div>
 </body>
 </html>
@@ -20,11 +45,28 @@
         el: '#app',
         data: {
             income: "",
-            result: ""
+            resultRetire: "",
+            interest: "",
+            resultDouble: "",
+            age: "",
+            resultPercent: "",
+            pv: "",
+            ir: "",
+            yi: "",
+            resultInvest: ""
         },
         methods: {
-            calc: function () {
-                this.result = this.income *8;
+            calcRetire: function () {
+                this.resultRetire = this.income *8;
+            },
+            calcDouble: function () {
+                this.resultDouble = 70 / this.interest;
+            },
+            calcPercent: function () {
+                this.resultPercent = 100 - this.age;
+            },
+            calcInvest: function () {
+                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi);
             }
         }
     });
