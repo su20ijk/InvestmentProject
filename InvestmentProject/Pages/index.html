@@ -17,56 +17,67 @@
             <div class="col">
                 <h6 style="text-align: center">Start Young</h6>
                 <p>
-                    The best investors don't need a lot of money (although that does help): they need time. Starting young is essential for a number of reasons. You can take more risks when in your youth, as you have time to recover from any poor ones. You will develop better spending habitats throughout your life time by watching how you use your money. But most importantly, being young maximizes the effectiveness of compound interests. With each return you are making more money. The longer you have that money in your savings the more money you will accrue. Eventually in the long run, you made more with less money than you would by starting later with more money.
+                    The best investors don't need a lot of money (although that does help): they need time. Starting young is essential for a number of reasons. You can take more risks when in your youth, as you have time to recover from any poor ones. You will develop better spending habitats throughout your life time by watching how you use your money. But most importantly, being young maximizes the effectiveness of compound interests. With each return you are making more money. The longer you have that money in your savings the more money you will accrue. Eventually in the long run, you make more with less money than you would if you start late.
                 </p>
             </div>
             <div class="col">
                 <h6 style="text-align: center">Risk & Return</h6>
                 <p>
-                    The key concept to investing is Risk & Return: the relationship of the amount of revenue gained and amount of risk taken on any investment. Investments with lower return rates make up for it by being stable for the long term. By being safe, these investments have more smaller returns than less larger returns. More risky investments, however, have to entice investors with higher return rates. Due to the higher chance of underperformance or loss of capital, these investments have to have larger returns. Therefore, the higher the risk, the higher the return. The lower the risk, the lower the return.
+                    The key concept to investing is Risk & Return: the relationship of the amount of revenue gained and amount of risk taken on any investment. Investments with lower return rates make up for it by being stable for the long term. By being safe, these investments have smaller returns than others. More risky investments, however, have to entice investors with higher return rates. Due to the higher chance of underperformance or loss of capital, these investments have to have larger returns. Therefore, the higher the risk, the higher the return. The lower the risk, the lower the return.
                 </p>
             </div>
             <div class="col">
                 <h6 style="text-align: center">Diversify</h6>
                 <p>
-                    Make sure to diversify your portfolio! It's very important to invest into many different types of investments, as every investment has its own risks and rewards. The events that could make investment successful may be detrimental to another. By having multiple varying investments, no one event should negatively affect all your assets. Diversification minimizes the volatility and risks of investments while keeping capital gain steady. That being said, make sure to invest in only what you understand and are comfortable with. In short, diversifying your portfolio will better balance the risk and return of your assets and investments. 
+                    Make sure to diversify your portfolio! It's very important to invest into many different types of investments, as every investment has its own risks and rewards. The events that could make investment successful may be detrimental to another. By having multiple varying investments, no one event should negatively affect all your assets. Diversification minimizes the volatility and risks of investments while keeping capital gain steady. That being said, make sure to invest in only what you understand and are comfortable with. In short, diversifying your portfolio will better balance the risk and return of your assets and investments.
                 </p>
             </div>
         </div>
     </div>
     <hr />
-    <div>
-        <div id="app">
-            <div>How much money will you need for retirement?</div><br />
-            <div>please enter your target income: </div>
-            <input type="number" v-model="income" /><br />
-            <button v-on:click="calcRetire">Calculate</button><br />
-            You will need about ${{resultRetire}} for your retirement<br />
-            <br />
-            <br />
-            <br />
-            <div>How many years will it take to double up your principle?</div>
-            <div>Please enter your annual percentage growth rate: </div>
-            <input type="number" v-model="interest" />
-            <button v-on:click="calcDouble">Calculate</button><br />
-            You will need about {{resultDouble}} years for the principle to double its value
-            <br />
-            <br />
-            <br />
-            <div>What percentage of your investments should be buying stocks?</div>
-            <div>Please enter your age:</div>
-            <input type="number" v-model="age" />
-            <button v-on:click="calcPercent">Calculate</button><br />
-            {{resultPercent}} % of your investment should be buying stocks
-            <br />
-            <br />
-            <br />
-            <div>What will the future value be for your investment?</div>
-            <div>Present Value: <input type="number" v-model="pv" /></div>
-            <div>Interest Rate: <input type="number" v-model="ir" /></div>
-            <div># of years in investment: <input type="number" v-model="yi" /></div>
-            <button v-on:click="calcInvest">Calculate</button><br />
-            The future value of this investment will be ${{resultInvest}}
+    <div id="app" class="container">
+        <div class="row" style="padding-bottom:75px">
+            <div class="col-md-5">
+                How much money will you need for retirement?<br />
+                <input class="inputBox1 form-input" type="number" v-model="income" placeholder="please enter your target income"/><br />
+                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcRetire">Calculate</button><br />
+                <div id="showRetire" style="visibility:hidden">
+                    You will need about ${{resultRetire}} for your retirement<br />
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-5">
+                How many years will it take to double up your principle?<br />
+                <input class="inputBox1 form-input" type="number" v-model="interest" placeholder="Please enter your annual percentage growth rate" />
+                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcDouble">Calculate</button><br />
+                <div id="showDouble" style="visibility:hidden">
+                    It will take about {{resultDouble}} years for the principle to double its value
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:75px">
+            <div class="col-md-5">
+
+                <div>What percentage of your investments should be buying stocks?</div>
+                <input class="inputBox1 form-input" type="number" v-model="age" placeholder="Please enter your age" />
+                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcPercent">Calculate</button><br />
+                <div id="showPercent" style="visibility:hidden">
+                    {{resultPercent}}% of your investment should be buying stocks
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-5">
+                <div>What will the future value be for your investment?</div>
+                <div> <input class="inputBox1 form-input" type="number" v-model="pv" placeholder="Present Value of the investment" /></div>
+                <div> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Interest Rate of the investment"/></div>
+                <div> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="# of years in investment"/></div>
+                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcInvest">Calculate</button><br />
+                <div id="showInvest" style="visibility:hidden">
+                    The future value of this investment will be ${{resultInvest}}
+                </div>
+            </div>
         </div>
     </div>
     <hr />
@@ -98,7 +109,8 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="table-cell" href="mutualFunds.html">Mutual Funds
+                    <td class="table-cell" href="mutualFunds.html">
+                        Mutual Funds
                     </td>
                     <td></td>
                 </tr>
@@ -134,16 +146,24 @@
         },
         methods: {
             calcRetire: function () {
-                this.resultRetire = this.income * 8;
+                this.resultRetire = (this.income * 8).toFixed();
+                var x = document.getElementById("showRetire");
+                x.style.visibility = "visible";
             },
             calcDouble: function () {
-                this.resultDouble = 70 / this.interest;
+                this.resultDouble = (70 / this.interest).toFixed();
+                var x = document.getElementById("showDouble");
+                x.style.visibility = "visible";
             },
             calcPercent: function () {
-                this.resultPercent = 100 - this.age;
+                this.resultPercent = (100 - this.age).toFixed();
+                var x = document.getElementById("showPercent");
+                x.style.visibility = "visible";
             },
             calcInvest: function () {
-                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi);
+                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi).toFixed();
+                var x = document.getElementById("showInvest");
+                x.style.visibility = "visible";
             }
         }
     });
