@@ -143,6 +143,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Pages\mutualFunds.html" />
+    <Content Include="Pages\municipalBonds.html" />
+    <Content Include="Pages\fedGovBonds.html" />
+    <Content Include="Pages\corporateBonds.html" />
+    <Content Include="Pages\preferredStock.html" />
+    <Content Include="Pages\commonStock.html" />
+    <Content Include="Pages\cd.html" />
     <Content Include="Pages\index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -253,7 +260,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58686</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
