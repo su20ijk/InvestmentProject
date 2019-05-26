@@ -180,7 +180,7 @@
                 x.style.visibility = "visible";
             },
             calcInvest: function () {
-                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi).toFixed();
+                this.resultInvest = (this.pv * Math.pow((1 + this.ir / 100.00), this.yi)).toFixed();
                 var x = document.getElementById("showInvest");
                 x.style.visibility = "visible";
             }
