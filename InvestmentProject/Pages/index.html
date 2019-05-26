@@ -39,7 +39,7 @@
         <div class="row" style="padding-bottom:75px">
             <div class="col-md-5">
                 How much money will you need for retirement?<br />
-                <input class="inputBox1 form-input" type="number" v-model="income" placeholder="please enter your target income"/><br />
+                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="income" placeholder="please enter your target income here" /><br /></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcRetire">Calculate</button><br />
                 <div id="showRetire" style="visibility:hidden">
                     You will need about ${{resultRetire}} for your retirement<br />
@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-5">
                 How many years will it take to double up your principle?<br />
-                <input class="inputBox1 form-input" type="number" v-model="interest" placeholder="Please enter your annual percentage growth rate" />
+                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="interest" placeholder="Please enter your annual percentage growth rate here" /></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcDouble">Calculate</button><br />
                 <div id="showDouble" style="visibility:hidden">
                     It will take about {{resultDouble}} years for the principle to double its value
@@ -60,7 +60,7 @@
             <div class="col-md-5">
 
                 <div>What percentage of your investments should be buying stocks?</div>
-                <input class="inputBox1 form-input" type="number" v-model="age" placeholder="Please enter your age" />
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="age" placeholder="Please enter your age here" /></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcPercent">Calculate</button><br />
                 <div id="showPercent" style="visibility:hidden">
                     {{resultPercent}}% of your investment should be buying stocks
@@ -70,9 +70,9 @@
             </div>
             <div class="col-md-5">
                 <div>What will the future value be for your investment?</div>
-                <div> <input class="inputBox1 form-input" type="number" v-model="pv" placeholder="Present Value of the investment" /></div>
-                <div> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Interest Rate of the investment"/></div>
-                <div> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="# of years in investment"/></div>
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="pv" placeholder="Please enter the present Value of the investment here" /></div>
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Please enter the nterest Rate of the investment here"/></div>
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="Please enter the number of years of the investment here"/></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcInvest">Calculate</button><br />
                 <div id="showInvest" style="visibility:hidden">
                     The future value of this investment will be ${{resultInvest}}
