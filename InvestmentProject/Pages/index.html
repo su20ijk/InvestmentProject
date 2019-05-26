@@ -5,6 +5,154 @@
     <title>Investment Project</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="../Content/Site.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        .slideshow-container {
+            position: relative;
+            background: #f1f1f1;
+        }
+
+        .mySlides {
+            display: none;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: #888;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+            .prev:hover, .next:hover {
+                background-color: #888;
+                color: white;
+            }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+            .active, .dot:hover {
+                background-color: #717171;
+            }
+
+        q {
+            font-style: italic;
+        }
+
+        .author {
+            color: cornflowerblue;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #888;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2px 16px;
+        }
+    </style>
 </head>
 <body style="padding:0px 0px 0px 0px" class="">
     <div class="topnav">
@@ -14,6 +162,7 @@
     <hr />
     <div class="container">
         <h3 class="col-lg-4 offset-4" style="text-align: center">The Basics to Investing</h3>
+        <br />
         <div class="row">
             <div class="col">
                 <h6 style="text-align: center">Start Young</h6>
@@ -38,43 +187,39 @@
     <hr />
     <div id="app" class="container">
         <div class="row" style="padding-bottom:75px">
-            <div class="col-md-5">
+            <div class="col-md-6">
                 How much money will you need for retirement?<br />
-                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="income" placeholder="please enter your target income here" /><br /></div>
-                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcRetire">Calculate</button><br />
+                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="income" placeholder="Please enter your target annual income here" /><br /></div>
+                <button class="hbutton primary-font color-gray hoverHide" v-on:click="calcRetire">Calculate</button><br />
                 <div id="showRetire" style="visibility:hidden">
                     You will need about ${{resultRetire}} for your retirement<br />
                 </div>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 How many years will it take to double up your principle?<br />
                 <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="interest" placeholder="Please enter your annual percentage growth rate here" /></div>
-                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcDouble">Calculate</button><br />
+                <button class="hbutton primary-font color-gray hoverHide" v-on:click="calcDouble">Calculate</button><br />
                 <div id="showDouble" style="visibility:hidden">
                     It will take about {{resultDouble}} years for the principle to double its value
                 </div>
             </div>
         </div>
         <div class="row" style="padding-bottom:75px">
-            <div class="col-md-5">
+            <div class="col-md-6">
 
                 <div>What percentage of your investments should be buying stocks?</div>
                 <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="age" placeholder="Please enter your age here" /></div>
-                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcPercent">Calculate</button><br />
+                <button class="hbutton primary-font color-gray hoverHide" v-on:click="calcPercent">Calculate</button><br />
                 <div id="showPercent" style="visibility:hidden">
                     {{resultPercent}}% of your investment should be buying stocks
                 </div>
             </div>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div>What will the future value be for your investment?</div>
                 <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="pv" placeholder="Please enter the present Value of the investment here" /></div>
-                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Please enter the nterest Rate of the investment here"/></div>
-                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="Please enter the number of years of the investment here"/></div>
-                <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcInvest">Calculate</button><br />
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Please enter the interest Rate of the investmentin % here" /></div>
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="Please enter the number of years of the investment here" /></div>
+                <button class="hbutton primary-font color-gray hoverHide" v-on:click="calcInvest">Calculate</button><br />
                 <div id="showInvest" style="visibility:hidden">
                     The future value of this investment will be ${{resultInvest}}
                 </div>
@@ -82,7 +227,7 @@
         </div>
     </div>
     <hr />
-    <div>
+    <div class="container">
         6.) What are the types of inevestments? (certificates of deposit, common stocks, preferred stock, corporate bonds, federal government bonds, muncipal bonds and mutual funds (Money Market, Mutual Fund, Income Fund, Growth and Uncome Fund, and Growth fund)) For each investment you must address the following:<br />
         <table class="table table-bordered" style="text-align: center; margin: auto">
             <thead>
@@ -105,36 +250,76 @@
                 </tr>
                 <tr>
                     <td></td>
-                    <td class="table-cell" onclick="location.href='mutualFunds.html'">Mutual Funds
+                    <td class="table-cell" onclick="location.href='mutualFunds.html'">
+                        Mutual Funds
                     </td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
-    </div>
-    <hr />
-    <div>
-        7.) What were the significant days in the history of stock markets from 1900s to the present?
-    </div>
-    <hr />
-    <div class="container">
-        <div class="row">
-            <div class="container col-lg-10" style="border:solid">
-                8.) Include fun, different, interesting, and offbeat stock market terms, mesaurements, and events (ie. Bull market, bear market, Superbowl Index, Shirt hemline index, etc.)
+        <hr />
+
+
+
+
+
+        <button id="myBtn" class="hbutton primary-font color-gray hoverHide">1929</button>
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>October 1929</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>When homes and autos selling were doing extraordinary in the 1920s, investors started borrowing more money than they could afford to purchase more stocks. And when the market went done, those investors can't pay for the huge amount of debt, and slid into bankruptcy. On the fourth day of the crash, the stock market fell 12.92%(also known as "Black Monday"). It lead to the Great Depression, and the stock market took 12 years to recover.</p>
+                </div>
             </div>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-1 offset-9">
-                <button type="button" class="btn">
-                    Previous
-                </button>
+
+
+
+        <button id="myBtn" class="hbutton primary-font color-gray hoverHide">1987</button>
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>October 19, 1987</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
             </div>
-            <div type="button "class="col-sm-1">
-                <button class="btn">
-                    Next
-                </button>
+        </div>
+
+
+
+
+
+        <hr />
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <p class="author">- John Keats</p>
+                <q>I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
             </div>
+
+            <div class="mySlides">
+                <p class="author">- Ernest Hemingway</p>
+                <q>But man is not made for defeat. A man can be destroyed but not defeated.</q>
+            </div>
+
+            <div class="mySlides">
+                <p class="author">- Thomas A. Edison</p>
+                <q>I have not failed. I've just found 10,000 ways that won't work.</q>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </div>
     <hr />
@@ -168,15 +353,70 @@
                 x.style.visibility = "visible";
             },
             calcPercent: function () {
+                if (this.age <= 0) {
+                    this.resultPercent = 100;
+                } else if (this.age >= 100) {
+                    this.resultPercent = 0;
+                } else {
                 this.resultPercent = (100 - this.age).toFixed();
+                }
                 var x = document.getElementById("showPercent");
                 x.style.visibility = "visible";
             },
             calcInvest: function () {
-                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi).toFixed();
+                this.resultInvest = (this.pv * Math.pow((1 + this.ir / 100.00), this.yi)).toFixed();
                 var x = document.getElementById("showInvest");
                 x.style.visibility = "visible";
             }
         }
     });
+</script>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+<script>
+    var modal = document.getElementById("myModal");
+    
+    var btn = document.getElementById("myBtn");
+    
+    var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
