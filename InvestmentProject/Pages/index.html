@@ -14,6 +14,7 @@
     <hr />
     <div class="container">
         <h3 class="col-lg-4 offset-4" style="text-align: center">The Basics to Investing</h3>
+        <br />
         <div class="row">
             <div class="col">
                 <h6 style="text-align: center">Start Young</h6>
@@ -40,7 +41,7 @@
         <div class="row" style="padding-bottom:75px">
             <div class="col-md-5">
                 How much money will you need for retirement?<br />
-                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="income" placeholder="please enter your target income here" /><br /></div>
+                <div style="padding-bottom:10px"><input class="inputBox1 form-input" type="number" v-model="income" placeholder="Please enter your target income here" /><br /></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcRetire">Calculate</button><br />
                 <div id="showRetire" style="visibility:hidden">
                     You will need about ${{resultRetire}} for your retirement<br />
@@ -72,7 +73,7 @@
             <div class="col-md-5">
                 <div>What will the future value be for your investment?</div>
                 <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="pv" placeholder="Please enter the present Value of the investment here" /></div>
-                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Please enter the nterest Rate of the investment here"/></div>
+                <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="ir" placeholder="Please enter the interest Rate of the investment here"/></div>
                 <div style="padding-bottom:10px"> <input class="inputBox1 form-input" type="number" v-model="yi" placeholder="Please enter the number of years of the investment here"/></div>
                 <button class="hbutton primary-font color-blue hoverHide" v-on:click="calcInvest">Calculate</button><br />
                 <div id="showInvest" style="visibility:hidden">
@@ -173,7 +174,7 @@
                 x.style.visibility = "visible";
             },
             calcInvest: function () {
-                this.resultInvest = this.pv * Math.pow((1 + this.ir / 100), this.yi).toFixed();
+                this.resultInvest = (this.pv * Math.pow((1 + this.ir / 100.00), this.yi)).toFixed();
                 var x = document.getElementById("showInvest");
                 x.style.visibility = "visible";
             }
