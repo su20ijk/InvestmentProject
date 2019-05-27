@@ -132,6 +132,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\certificate_of_deposit.jpg" />
+    <Content Include="Content\FedGovBond.gif" />
     <Content Include="Content\muni.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
