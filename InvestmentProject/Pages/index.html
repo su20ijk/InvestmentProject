@@ -227,7 +227,7 @@
         </div>
     </div>
     <hr />
-    <div>
+    <div class="container">
         <table class="table table-bordered" style="text-align: center; margin: auto">
             <thead>
                 <tr>
@@ -261,8 +261,6 @@
 
 
 
-
-        <button id="myBtn" class="hbutton primary-font color-gray hoverHide">1929</button>
         <div id="myModal" class="modal">
 
             <div class="modal-content">
@@ -278,7 +276,6 @@
 
 
 
-        <button id="myBtn" class="hbutton primary-font color-gray hoverHide">1987</button>
         <div id="myModal" class="modal">
 
             <div class="modal-content">
@@ -287,13 +284,117 @@
                     <span class="close">&times;</span>
                 </div>
                 <div class="modal-body">
+                    <p>As technology began to play a role in the stock market, people started to trade more and more frequently. Companies started leveraging questionable financing tools, share prices dropped heavily. On October 19, 1987; as more investors sold, more investors panicked and sold aggressively. This lead to a a 23% lose of the stock market's value in one day, broke the record of the highest stock market drop in one day. It took another 12 years for the stock market to recover, and it is also known as "Black Monday the 2nd".</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>1999-2000</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p>Technology is again front and center. In the 1990s, "new economy" companies like AOL, Pets.com saw their share prices rise substantially. Only two years later, those dot.com companies fell out of favor as investors fled highly inflated tech stocks. Two years after that, their stock price went from $87 to under $1 per share. Some of them like Globe.com and Nasdaq fell from 50000 to just 1000 in one year. This was recovered after Wall Street began to rate those tech companies more accurately, and investors think more and be more comservative when they purchase stocks and funds. </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>2008</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
                     <p></p>
                 </div>
             </div>
         </div>
 
+        <!-- Trigger/Open The Modal -->
+        <button class="myBtn hbutton primary-font color-gray hoverHide">1929</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+
+        </div>
 
 
+        <!-- Trigger/Open The Modal -->
+        <button class="myBtn hbutton primary-font color-gray hoverHide">1987</button>
+
+        <!-- The Modal -->
+        <div id="myModal2" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Trigger/Open The Modal -->
+        <button class="myBtn hbutton primary-font color-gray hoverHide">1999</button>
+
+        <!-- The Modal -->
+        <div id="myModal3" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Trigger/Open The Modal -->
+        <button class="myBtn hbutton primary-font color-gray hoverHide">2008</button>
+
+        <!-- The Modal -->
+        <div id="myModal4" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+            </div>
+
+        </div>
 
 
         <hr />
@@ -399,20 +500,49 @@
     }
 </script>
 <script>
-    var modal = document.getElementById("myModal");
-    
-    var btn = document.getElementById("myBtn");
-    
-    var span = document.getElementsByClassName("close")[0];
-    
-    btn.onclick = function () {
-        modal.style.display = "block";
+    // Get the modal
+    var modal = document.getElementsByClassName('modal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementsByClassName("myBtn");
+
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close");
+
+    // When the user clicks the button, open the modal 
+    btn[0].onclick = function () {
+        modal[0].style.display = "block";
     }
-    
-    span.onclick = function () {
-        modal.style.display = "none";
+
+    btn[1].onclick = function () {
+        modal[1].style.display = "block";
     }
-    
+
+    btn[2].onclick = function () {
+        modal[2].style.display = "block";
+    }
+
+    btn[3].onclick = function () {
+        modal[3].style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span[0].onclick = function () {
+        modal[0].style.display = "none";
+    }
+
+    span[1].onclick = function () {
+        modal[1].style.display = "none";
+    }
+
+    span[2].onclick = function () {
+        modal[2].style.display = "none";
+    }
+
+    span[3].onclick = function () {
+        modal[3].style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
