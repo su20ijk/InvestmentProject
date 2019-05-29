@@ -138,6 +138,7 @@
     <Content Include="Content\muni.jpg" />
     <Content Include="Content\preferred-Stock.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Stocks-vs-Bonds.png" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
