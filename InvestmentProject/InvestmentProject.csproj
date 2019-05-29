@@ -149,6 +149,7 @@
     <Content Include="Content\preferred-Stock.png" />
     <Content Include="Content\preferredStockYears.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Stocks-vs-Bonds.png" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -160,6 +161,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Pages\growth.html" />
+    <Content Include="Pages\income.html" />
+    <Content Include="Pages\incomeAndGrowth.html" />
+    <Content Include="Pages\moneyMarket.html" />
     <Content Include="Pages\sources.html" />
     <Content Include="Pages\mutualFunds.html" />
     <Content Include="Pages\municipalBonds.html" />
