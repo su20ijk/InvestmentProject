@@ -161,6 +161,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Pages\growth.html" />
+    <Content Include="Pages\income.html" />
+    <Content Include="Pages\incomeAndGrowth.html" />
     <Content Include="Pages\moneyMarket.html" />
     <Content Include="Pages\sources.html" />
     <Content Include="Pages\mutualFunds.html" />
