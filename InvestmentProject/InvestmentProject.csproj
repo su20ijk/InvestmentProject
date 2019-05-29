@@ -141,8 +141,11 @@
     <Content Include="Content\common-Stock.jpg" />
     <Content Include="Content\CommonStockYears.png" />
     <Content Include="Content\corporate-bond-example.jpg" />
+    <Content Include="Content\corporateBondsyears.png" />
     <Content Include="Content\FedGovBond.gif" />
+    <Content Include="Content\fedgovbondyears.png" />
     <Content Include="Content\muni.jpg" />
+    <Content Include="Content\munisyears.jpg" />
     <Content Include="Content\preferred-Stock.png" />
     <Content Include="Content\preferredStockYears.jpg" />
     <Content Include="Content\Site.css" />
